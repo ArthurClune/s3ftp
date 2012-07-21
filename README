@@ -1,0 +1,55 @@
+
+s3ftp.py provides ftp like access to Amazon's s3. 
+
+You'll need boto to use this:
+
+$ sudo easy_install boto
+
+Original code by Dug Song (http://code.google.com/p/s3tools). This
+version altered to use boto by Arthur Clune (arthur@honeynet.org.uk)
+
+To get started, add a keys.py file with your access and secret keys
+from http://aws.amazon.com/s3 (or stick them into your MacOS X
+keychaini under s3.amazonaws.com as 'access' and 'secret').
+
+Here's a sample keys.py
+
+$ cat keys.py
+ACCESS_KEY = "key here"
+SERRET_KEY = "key here"
+
+Then just use s3ftp.py as a ftp like service. 
+
+biber:code/local/s3tools 550: ./s3ftp.py                                                                                                    21:41:02
+Connected to S3, bucket "arthur"
+s3ftp> ls
+
+s3ftp> pwd
+Remote working directory: /
+s3ftp> help
+cd <path>                change remote directory
+exit                     leave s3ftp
+get <rpath> [lpath]      download a file
+getdir <path>            recursively download a directory
+help                     display this help text
+lcd [path]               change local directory
+lls                      display local directory listing
+lpwd                     print local working directory
+ls [path]                list files / directories. Options -l or -e
+lsdir [path]             recursively list a directory tree
+mkdir <path>             create a directory
+put <lpath> [rpath]      upload file
+putdir <path>            recursively upload a directory tree
+pwd                      print working directory on remote machine
+quit                     leave s3ftp
+rm <path>                delete remote file
+rmdir <path>             recursively remove a directory tree
+setacl <acl> <path>      set acl: acl = public-read | public-read-write | private
+version                  print version
+
+
+Because s3ftp isn't a posix file system, all the directory related commands are
+a thin skin over s3.
+
+
+
