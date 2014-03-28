@@ -1,5 +1,5 @@
 
-s3ftp.py provides ftp like access to Amazon's s3. 
+s3ftp.py provides ftp like access to Amazon's s3.
 
 You'll need boto to use this:
 
@@ -16,9 +16,9 @@ Here's a sample keys.py
 
 $ cat keys.py
 ACCESS_KEY = "key here"
-SERRET_KEY = "key here"
+SECRET_KEY = "key here"
 
-Then just use s3ftp.py as a ftp like service. 
+Then just use s3ftp.py as a ftp like service.
 
 biber:code/local/s3tools 550: ./s3ftp.py                                                                                                    21:41:02
 Connected to S3, bucket "arthur"
